@@ -1,15 +1,29 @@
 ---
-title: '我的第一篇博客文章'
+title: '深入理解 Next.js 开发技巧'
 date: '2024-03-20'
+excerpt: '本文将详细介绍 Next.js 的核心概念和最佳实践，帮助你构建高性能的 React 应用。'
+coverImage: '/images/nextjs-cover.jpg'
+author:
+  name: '张三'
+  avatar: '/images/avatar.jpg'
 ---
 
-# 欢迎来到我的技术博客
+# 深入理解 Next.js 开发技巧
 
-这是我的第一篇博客文章。你可以在这里写入 Markdown 格式的内容。
+Next.js 是一个轻量级的 React 框架，它提供了许多开箱即用的功能...
 
-## 特性
+## 为什么选择 Next.js？
 
-- 支持 Markdown
-- 自动生成目录
-- 代码高亮
-- 响应式设计 
+- 零配置
+- 自动代码分割
+- 服务端渲染
+- 静态站点生成
+
+## 核心概念
+
+1. 页面路由
+2. 数据获取
+3. 图片优化
+4. API 路由
+
+... 

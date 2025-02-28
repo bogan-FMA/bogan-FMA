@@ -5,7 +5,8 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "export": "next build && next export"
   },
   "dependencies": {
     "date-fns": "^2.30.0",
@@ -15,5 +16,8 @@
     "react-dom": "^18.2.0",
     "remark": "^14.0.3",
     "remark-html": "^15.0.2"
+  },
+  "devDependencies": {
+    "@netlify/plugin-nextjs": "^4.41.3"
   }
 } 
