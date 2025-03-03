@@ -48,28 +48,40 @@ export default function TankGame() {
     
     // 处理触摸控制
     const touchControls = document.querySelectorAll(`.${styles.control}`);
+    
+    const touchStartHandlers = {};
+    const touchEndHandlers = {};
+    
     touchControls.forEach(control => {
-      control.addEventListener('touchstart', handleTouchStart);
-      control.addEventListener('touchend', handleTouchEnd);
+      const direction = control.getAttribute('data-direction');
+      
+      // 为每个按钮创建独立的处理函数
+      touchStartHandlers[direction] = (e) => {
+        e.preventDefault();
+        if (direction === 'fire') {
+          shoot();
+        } else {
+          player.direction[direction] = true;
+        }
+      };
+      
+      touchEndHandlers[direction] = (e) => {
+        e.preventDefault();
+        if (direction !== 'fire') {
+          player.direction[direction] = false;
+        }
+      };
+      
+      // 添加事件监听器
+      control.addEventListener('touchstart', touchStartHandlers[direction]);
+      control.addEventListener('mousedown', touchStartHandlers[direction]);
+      
+      if (direction !== 'fire') {
+        control.addEventListener('touchend', touchEndHandlers[direction]);
+        control.addEventListener('mouseup', touchEndHandlers[direction]);
+        control.addEventListener('mouseleave', touchEndHandlers[direction]);
+      }
     });
-    
-    function handleTouchStart(e) {
-      e.preventDefault();
-      const direction = e.target.getAttribute('data-direction');
-      if (direction === 'fire') {
-        shoot();
-      } else if (direction) {
-        player.direction[direction] = true;
-      }
-    }
-    
-    function handleTouchEnd(e) {
-      e.preventDefault();
-      const direction = e.target.getAttribute('data-direction');
-      if (direction && direction !== 'fire') {
-        player.direction[direction] = false;
-      }
-    }
     
     // 处理键盘控制
     window.addEventListener('keydown', (e) => {
@@ -202,8 +214,15 @@ export default function TankGame() {
           
           // 移除事件监听器
           touchControls.forEach(control => {
-            control.removeEventListener('touchstart', handleTouchStart);
-            control.removeEventListener('touchend', handleTouchEnd);
+            const direction = control.getAttribute('data-direction');
+            control.removeEventListener('touchstart', touchStartHandlers[direction]);
+            control.removeEventListener('mousedown', touchStartHandlers[direction]);
+            
+            if (direction !== 'fire') {
+              control.removeEventListener('touchend', touchEndHandlers[direction]);
+              control.removeEventListener('mouseup', touchEndHandlers[direction]);
+              control.removeEventListener('mouseleave', touchEndHandlers[direction]);
+            }
           });
           return;
         }
@@ -275,9 +294,18 @@ export default function TankGame() {
     // 清理函数
     return () => {
       cancelAnimationFrame(animationFrameId);
+      
+      // 移除事件监听器
       touchControls.forEach(control => {
-        control.removeEventListener('touchstart', handleTouchStart);
-        control.removeEventListener('touchend', handleTouchEnd);
+        const direction = control.getAttribute('data-direction');
+        control.removeEventListener('touchstart', touchStartHandlers[direction]);
+        control.removeEventListener('mousedown', touchStartHandlers[direction]);
+        
+        if (direction !== 'fire') {
+          control.removeEventListener('touchend', touchEndHandlers[direction]);
+          control.removeEventListener('mouseup', touchEndHandlers[direction]);
+          control.removeEventListener('mouseleave', touchEndHandlers[direction]);
+        }
       });
     };
   }, [gameStarted]);
