@@ -13,7 +13,19 @@ export default function Home({ allPostsData }) {
       </Head>
 
       <main className="main-content">
-        <h1 className="title">最新文章</h1>
+        <h1 className="title">欢迎来到我的技术博客</h1>
+        
+        <div className="game-banner">
+          <h2>小游戏推荐</h2>
+          <Link href="/games/tank">
+            <div className="game-card">
+              <h3>坦克传奇之战争机器</h3>
+              <p>适合6岁以上小朋友的简单坦克游戏，点击开始游戏！</p>
+            </div>
+          </Link>
+        </div>
+        
+        <h2>最新文章</h2>
         <div className="posts">
           {allPostsData.map(({ id, date, title, excerpt, coverImage }) => (
             <article key={id} className="post-card">

@@ -1,0 +1,121 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  padding: 1rem;
+  background-color: #000033;
+  color: white;
+  touch-action: none;
+}
+
+.title {
+  color: #FFC107;
+  text-shadow: 0 0 10px #FFC107;
+  margin-bottom: 1rem;
+  text-align: center;
+  font-size: 2rem;
+}
+
+.canvas {
+  border: 2px solid #FFC107;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  max-width: 100%;
+  background-color: #000033;
+}
+
+.scoreBoard {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: #4CAF50;
+}
+
+.controls {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 800px;
+}
+
+.directionControls {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.horizontalControls {
+  display: flex;
+  gap: 1rem;
+  margin: 0.5rem 0;
+}
+
+.control {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.2);
+  border: none;
+  color: white;
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  user-select: none;
+  touch-action: manipulation;
+}
+
+.control:active {
+  background-color: rgba(255, 255, 255, 0.4);
+}
+
+.fireButton {
+  width: 80px;
+  height: 80px;
+  background-color: rgba(244, 67, 54, 0.7);
+  font-size: 1.2rem;
+}
+
+.fireButton:active {
+  background-color: rgba(244, 67, 54, 0.9);
+}
+
+.menu {
+  background-color: rgba(0, 0, 0, 0.8);
+  padding: 2rem;
+  border-radius: 10px;
+  text-align: center;
+  margin: 2rem 0;
+}
+
+.button {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 1rem 2rem;
+  font-size: 1.2rem;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 1rem;
+}
+
+.button:hover {
+  background-color: #45a049;
+}
+
+@media (max-width: 600px) {
+  .title {
+    font-size: 1.5rem;
+  }
+  
+  .control {
+    width: 50px;
+    height: 50px;
+  }
+  
+  .fireButton {
+    width: 70px;
+    height: 70px;
+  }
+} 

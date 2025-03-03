@@ -173,4 +173,31 @@ img {
 footer {
   margin: 2rem 0;
   text-align: center;
+}
+
+.game-banner {
+  margin: 2rem 0;
+  padding: 1rem;
+  background-color: #f0f8ff;
+  border-radius: 8px;
+}
+
+.game-card {
+  background: linear-gradient(135deg, #4CAF50, #2196F3);
+  color: white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  margin-top: 1rem;
+  transition: transform 0.3s;
+  cursor: pointer;
+}
+
+.game-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.game-card h3 {
+  margin-top: 0;
+  font-size: 1.5rem;
 } 
