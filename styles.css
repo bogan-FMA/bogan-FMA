@@ -14,8 +14,9 @@ body {
     position: relative;
     width: 100vw;
     height: 100vh;
-    background-image: url('background.png');
-    background-size: cover;
+    background-color: #8cc;
+    background-image: url('背景图片路径');
+    overflow: hidden;
 }
 
 #game-info {
@@ -47,11 +48,37 @@ body {
     position: absolute;
     width: 80px;
     height: 50px;
-    background-color: #5d5;
-    border: 2px solid #333;
-    border-radius: 10px;
+    background-color: #5a5;
+    border: 3px solid #333;
+    border-radius: 12px;
     bottom: 0;
     z-index: 1;
+    position: relative;
+    overflow: visible;
+}
+
+.tank-body:before {
+    content: "";
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    background-color: white;
+    border: 2px solid black;
+    border-radius: 50%;
+    top: 5px;
+    left: 15px;
+}
+
+.tank-body:after {
+    content: "";
+    position: absolute;
+    width: 30px;
+    height: 10px;
+    background-color: white;
+    border: 2px solid black;
+    border-radius: 5px;
+    bottom: 5px;
+    left: 25px;
 }
 
 .tank-turret {
@@ -69,13 +96,14 @@ body {
 
 .tank-cannon {
     position: absolute;
-    width: 10px;
-    height: 30px;
+    width: 15px;
+    height: 40px;
     background-color: #333;
     bottom: 45px;
     left: 50%;
     transform: translateX(-50%);
     z-index: 3;
+    border-radius: 5px;
 }
 
 .bullet {
@@ -111,9 +139,22 @@ body {
 .enemy {
     position: absolute;
     width: 70px;
-    height: 40px;
+    height: 45px;
     background-color: #a55;
-    border: 2px solid #333;
-    border-radius: 5px;
+    border: 3px solid #333;
+    border-radius: 8px;
     z-index: 1;
+    position: relative;
+}
+
+.enemy:before {
+    content: "";
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background-color: white;
+    border: 2px solid black;
+    border-radius: 50%;
+    top: 5px;
+    left: 12px;
 } 
