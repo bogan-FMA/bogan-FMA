@@ -1,0 +1,119 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #8cc;
+    overflow: hidden;
+    font-family: Arial, sans-serif;
+}
+
+.game-container {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    background-image: url('background.png');
+    background-size: cover;
+}
+
+#game-info {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    display: flex;
+    gap: 20px;
+}
+
+.tank {
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    transition: transform 0.1s;
+}
+
+.player-tank {
+    bottom: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.tank-body {
+    position: absolute;
+    width: 80px;
+    height: 50px;
+    background-color: #5d5;
+    border: 2px solid #333;
+    border-radius: 10px;
+    bottom: 0;
+    z-index: 1;
+}
+
+.tank-turret {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    background-color: #3a3;
+    border: 2px solid #333;
+    border-radius: 50%;
+    bottom: 25px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+}
+
+.tank-cannon {
+    position: absolute;
+    width: 10px;
+    height: 30px;
+    background-color: #333;
+    bottom: 45px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 3;
+}
+
+.bullet {
+    position: absolute;
+    width: 6px;
+    height: 12px;
+    background-color: #f80;
+    border-radius: 3px;
+    z-index: 4;
+}
+
+.explosion {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    background-color: #f50;
+    border-radius: 50%;
+    animation: explode 0.5s forwards;
+    z-index: 5;
+}
+
+@keyframes explode {
+    0% {
+        transform: scale(0.5);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(2);
+        opacity: 0;
+    }
+}
+
+.enemy {
+    position: absolute;
+    width: 70px;
+    height: 40px;
+    background-color: #a55;
+    border: 2px solid #333;
+    border-radius: 5px;
+    z-index: 1;
+} 
