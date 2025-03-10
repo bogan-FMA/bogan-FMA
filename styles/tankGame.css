@@ -1,0 +1,152 @@
+/* 坦克游戏样式 */
+.game-container {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background-color: #8cc;
+  overflow: hidden;
+}
+
+.tank {
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  transition: transform 0.1s;
+}
+
+.player-tank {
+  bottom: 50px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.tank-body {
+  position: absolute;
+  width: 80px;
+  height: 50px;
+  background-color: #5a5;  /* 更亮的绿色 */
+  border: 3px solid #333;
+  border-radius: 12px;
+  bottom: 0;
+  z-index: 1;
+  /* 添加眼睛和嘴巴效果 */
+  position: relative;
+  overflow: visible;
+}
+
+.tank-body:before {
+  content: "";
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  background-color: white;
+  border: 2px solid black;
+  border-radius: 50%;
+  top: 5px;
+  left: 15px;
+  /* 这是左眼 */
+}
+
+.tank-body:after {
+  content: "";
+  position: absolute;
+  width: 30px;
+  height: 10px;
+  background-color: white;
+  border: 2px solid black;
+  border-radius: 5px;
+  bottom: 5px;
+  left: 25px;
+  /* 这是嘴巴 */
+}
+
+.tank-turret {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  background-color: #3a3;
+  border: 2px solid #333;
+  border-radius: 50%;
+  bottom: 25px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+}
+
+.tank-cannon {
+  position: absolute;
+  width: 15px;
+  height: 40px;
+  background-color: #333;
+  bottom: 45px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 3;
+  border-radius: 5px;
+}
+
+.bullet {
+  position: absolute;
+  width: 6px;
+  height: 12px;
+  background-color: #f80;
+  border-radius: 3px;
+  z-index: 4;
+}
+
+.explosion {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  background-color: #f50;
+  border-radius: 50%;
+  animation: explode 0.5s forwards;
+  z-index: 5;
+}
+
+@keyframes explode {
+  0% {
+    transform: scale(0.5);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+
+.enemy {
+  position: absolute;
+  width: 70px;
+  height: 45px;
+  background-color: #a55;  /* 红褐色 */
+  border: 3px solid #333;
+  border-radius: 8px;
+  z-index: 1;
+  /* 添加面部特征 */
+  position: relative;
+}
+
+.enemy:before {
+  content: "";
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  background-color: white;
+  border: 2px solid black;
+  border-radius: 50%;
+  top: 5px;
+  left: 12px;
+}
+
+#game-info {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  display: flex;
+  gap: 20px;
+} 
